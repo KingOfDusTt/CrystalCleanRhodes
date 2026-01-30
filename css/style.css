@@ -95,7 +95,7 @@ ul {
 
 /* --- Hero Section --- */
 .hero {
-    background: linear-gradient(rgba(14, 42, 71, 0.8), rgba(14, 42, 71, 0.8)), url('../images/hero-bg.jpg'); /* Θέλει μια εικόνα background */
+    background: linear-gradient(rgba(14, 42, 71, 0.8), rgba(14, 42, 71, 0.8)), url('../images/hero-bg.png'); /* Θέλει μια εικόνα background */
     background-size: cover;
     background-position: center;
     background-color: var(--primary-blue); /* Fallback αν δεν υπάρχει εικόνα */
@@ -213,4 +213,146 @@ ul {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* --- Sections General --- */
+.section-padding {
+    padding: 80px 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.section-header {
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+.divider {
+    height: 4px;
+    width: 70px;
+    background-color: var(--accent-cyan);
+    margin: 0 auto 15px;
+    border-radius: 2px;
+}
+
+/* --- Services Grid --- */
+.services-grid {
+    display: grid;
+    /* Αυτόματη προσαρμογή στηλών: Τουλάχιστον 250px πλάτος η κάθε κάρτα */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    border-bottom: 4px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-10px); /* Σηκώνεται προς τα πάνω */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-bottom: 4px solid var(--accent-cyan);
+}
+
+.icon-box {
+    font-size: 3rem;
+    color: var(--accent-cyan);
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    margin-bottom: 15px;
+    color: var(--primary-blue);
+}
+
+/* --- Why Us Section --- */
+.bg-light {
+    background-color: #f9f9f9;
+}
+
+.text-cyan {
+    color: var(--accent-cyan);
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.why-us-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.check-list {
+    margin: 30px 0;
+}
+
+/* Στυλ για τη λίστα με απόλυτη στοίχιση */
+.check-list {
+    margin: 30px 0;
+}
+
+.check-list li {
+    display: flex; /* Βάζει το εικονίδιο δίπλα στο κείμενο */
+    align-items: flex-start; /* Στοίχιση πάνω */
+    margin-bottom: 20px;
+}
+
+.check-list i {
+    color: var(--accent-cyan);
+    font-size: 1.3rem;
+    min-width: 35px; /* Σταθερό πλάτος για το εικονίδιο ώστε να μην κουνιέται */
+    margin-top: 2px; /* Μικρή διόρθωση για να ευθυγραμμιστεί με τα γράμματα */
+}
+
+/* Grid για τον τίτλο και την περιγραφή */
+.list-details {
+    display: grid;
+    grid-template-columns: 180px 1fr; /* Στήλη 1: Τίτλος (180px), Στήλη 2: Υπόλοιπο */
+    gap: 10px;
+    align-items: baseline;
+}
+
+.list-title {
+    color: var(--primary-blue);
+    font-weight: 700;
+}
+
+.list-desc {
+    color: #555;
+}
+
+/* Στυλ για την εικόνα δεξιά */
+.why-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Γεμίζει το κουτί χωρίς να παραμορφώνεται */
+    border-radius: 10px; /* Στρογγυλεμένες γωνίες */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Ωραία σκιά */
+    max-height: 450px;
+}
+
+/* Προσαρμογή για κινητά */
+@media (max-width: 768px) {
+    .list-details {
+        grid-template-columns: 1fr; /* Στα κινητά τα βάζουμε το ένα κάτω από το άλλο */
+        gap: 5px;
+    }
+    
+    .why-image {
+        margin-top: 30px;
+    }
 }
