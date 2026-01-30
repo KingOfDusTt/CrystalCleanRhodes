@@ -172,22 +172,45 @@ ul {
     margin-right: 5px;
 }
 
-/* --- Mobile Responsive --- */
+/* --- Mobile Responsive  --- */
 @media (max-width: 768px) {
-    .main-nav {
-        display: none; /* Θα το εμφανίζουμε με JS */
-    }
-    
     .mobile-toggle {
-        display: block;
+        display: block; /* Εμφανίζουμε το κουμπί */
+        color: var(--text-light);
     }
     
+    /* Αρχικά κρύβουμε το μενού */
+    .main-nav {
+        display: none; 
+        position: absolute;
+        top: 100%; /* Ακριβώς κάτω από το header */
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-blue);
+        padding: 20px 0;
+        text-align: center;
+        box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Όταν η JS προσθέσει την κλάση .active, το εμφανίζουμε */
+    .main-nav.active {
+        display: block;
+        animation: slideDown 0.3s ease;
+    }
+
+    .main-nav ul {
+        flex-direction: column; /* Τα λινκ το ένα κάτω από το άλλο */
+        gap: 20px;
+    }
+
     .hero h1 {
         font-size: 2rem;
     }
-    
-    .contact-info {
-        flex-direction: column;
-        gap: 10px;
-    }
+}
+
+/* Ένα μικρό animation για το άνοιγμα */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 }
