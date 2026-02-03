@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Επικοινωνία & Προσφορά | Crystal Clean Rhodes</title>
+    <meta name="description" content="Ζητήστε προσφορά καθαρισμού ή επικοινωνήστε μαζί μας. Crystal Clean Rhodes.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Crystal Clean Rhodes Logo" class="logo-img">
+                </a>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Αρχική</a></li>
+                    <li><a href="index.html#services">Υπηρεσίες</a></li>
+                    <li><a href="index.html#services">Ποιοι Είμαστε</a></li> <li><a href="contact.html" class="btn-primary active">Ζητήστε Προσφορά</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Επικοινωνία</h1>
+            <p>Είμαστε εδώ για να λύσουμε κάθε απορία σας</p>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info-box">
+                    <h3>Στοιχεία Επικοινωνίας</h3>
+                    <p>Συμπληρώστε τη φόρμα για δωρεάν εκτίμηση ή καλέστε μας άμεσα.</p>
+                    
+                    <div class="info-item">
+                        <div class="icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="details">
+                            <h4>Τηλέφωνο</h4>
+                            <p><a href="tel:+306937443300">693 744 3300</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <div class="details">
+                            <h4>Email</h4>
+                            <p><a href="mailto:crystal.clean.rhodes1@gmail.com">crystal.clean.rhodes1@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="details">
+                            <h4>Περιοχή Εξυπηρέτησης</h4>
+                            <p>Ρόδος</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-box">
+                    <form id="offerForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Ονοματεπώνυμο</label>
+                            <input type="text" id="name" name="name" placeholder="Το όνομά σας" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Τηλέφωνο</label>
+                                <input type="tel" id="phone" name="phone" placeholder="π.χ. 69XXXXXXX" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="Το email σας" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Ενδιαφέρομαι για</label>
+                            <select id="service" name="service">
+                                <option value="general">Γενικό Καθαρισμό Σπιτιού</option>
+                                <option value="business">Καθαρισμό Επαγγελματικού Χώρου</option>
+                                <option value="bio">Βιολογικό Καθαρισμό</option>
+                                <option value="initial">Αρχικό Καθαρισμό (Νεόδμητα/Ανακαινίσεις)</option>
+                                <option value="other">Άλλο</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Μήνυμα / Λεπτομέρειες</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Πείτε μας λίγα λόγια για το χώρο..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary full-width">Αποστολή Μηνύματος</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 Crystal Clean Rhodes. All rights reserved.</p>
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> 6937443300</span>
+                <span><i class="fas fa-envelope"></i> crystal.clean.rhodes1@gmail.com</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
