@@ -21,7 +21,7 @@
             <nav class="main-nav">
                 <ul>
                     <li><a href="index.html">Αρχική</a></li>
-                    <li><a href="index.html#services">Υπηρεσίες</a></li>
+                    <li><a href="services.html">Υπηρεσίες</a></li>
                     <li><a href="index.html#services">Ποιοι Είμαστε</a></li> <li><a href="contact.html" class="btn-primary active">Ζητήστε Προσφορά</a></li>
                 </ul>
             </nav>
@@ -72,7 +72,16 @@
                 </div>
 
                 <div class="contact-form-box">
-                    <form id="offerForm" class="contact-form">
+    
+                    <div id="form-status" style="display: none; text-align: center; padding: 40px 20px;">
+                        <i class="fas fa-check-circle" style="font-size: 4rem; color: #2bb6c8; margin-bottom: 20px;"></i>
+                        <h3 style="color: #0e2a47; margin-bottom: 10px;">Το μήνυμα εστάλη!</h3>
+                        <p style="color: #555;">Ευχαριστούμε για την επικοινωνία. Ένας εκπρόσωπός μας θα επικοινωνήσει μαζί σας το συντομότερο.</p>
+                        <a href="index.html" class="btn btn-primary">Επιστροφή στην Αρχική Σελίδα</a>
+                    </div>
+
+                <form id="my-form" class="contact-form" action="https://formspree.io/f/xeeljawd" method="POST">
+        
                         <div class="form-group">
                             <label for="name">Ονοματεπώνυμο</label>
                             <input type="text" id="name" name="name" placeholder="Το όνομά σας" required>
@@ -92,11 +101,11 @@
                         <div class="form-group">
                             <label for="service">Ενδιαφέρομαι για</label>
                             <select id="service" name="service">
-                                <option value="general">Γενικό Καθαρισμό Σπιτιού</option>
-                                <option value="business">Καθαρισμό Επαγγελματικού Χώρου</option>
-                                <option value="bio">Βιολογικό Καθαρισμό</option>
-                                <option value="initial">Αρχικό Καθαρισμό (Νεόδμητα/Ανακαινίσεις)</option>
-                                <option value="other">Άλλο</option>
+                                <option value="Γενικός Καθαρισμός Σπιτιού">Γενικό Καθαρισμό Σπιτιού</option>
+                                <option value="Καθαρισμός Επαγγελματικού Χώρου">Καθαρισμό Επαγγελματικού Χώρου</option>
+                                <option value="Βιολογικός Καθαρισμός">Βιολογικό Καθαρισμό</option>
+                                <option value="Αρχικός Καθαρισμός">Αρχικό Καθαρισμό (Νεόδμητα/Ανακαινίσεις)</option>
+                                <option value="Άλλο">Άλλο</option>
                             </select>
                         </div>
 
@@ -105,7 +114,9 @@
                             <textarea id="message" name="message" rows="5" placeholder="Πείτε μας λίγα λόγια για το χώρο..."></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary full-width">Αποστολή Μηνύματος</button>
+                        <button type="submit" id="submit-btn" class="btn btn-primary full-width">Αποστολή Μηνύματος</button>
+        
+                        <p id="form-error" style="color: red; display: none; margin-top: 10px; text-align: center;"></p>
                     </form>
                 </div>
             </div>

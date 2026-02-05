@@ -259,8 +259,21 @@ ul {
     border-bottom: 4px solid transparent;
 }
 
+.service-card h3 {
+    margin-bottom: 15px;
+    color: var(--primary-blue);
+}
+
+.service-card h3 a {
+    text-decoration: none; /* Αφαιρεί την υπογράμμιση */
+    color: inherit;        /* Κρατάει το χρώμα του τίτλου (μπλε) και όχι το μπλε του link */
+    transition: color 0.3s;
+    display: block;        /* Κάνει το link να πιάνει όλο τον χώρο του τίτλου */
+}
+
 .service-card:hover {
     transform: translateY(-10px); /* Σηκώνεται προς τα πάνω */
+    color: var(--accent-cyan); /* Αλλάζει χρώμα όταν περνάς το ποντίκι */
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
     border-bottom: 4px solid var(--accent-cyan);
 }
@@ -555,4 +568,114 @@ select {
         margin-bottom: 0;
         width: 100%;
     }
+}
+
+/* --- Services Page Detailed Styling --- */
+
+.service-row {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin: 40px 0;
+}
+
+/* Για να μπαίνει η εικόνα δεξιά στις ζυγές υπηρεσίες */
+.service-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.service-img {
+    flex: 1;
+    height: 350px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.service-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-img:hover img {
+    transform: scale(1.05); /* Ελαφρύ ζουμ όταν περνάει το ποντίκι */
+}
+
+.service-text {
+    flex: 1;
+}
+
+.icon-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.icon-title i {
+    font-size: 2rem;
+    color: var(--accent-cyan);
+}
+
+.icon-title h2 {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    margin: 0;
+}
+
+.service-text p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.service-list {
+    margin-bottom: 30px;
+}
+
+.service-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.service-list li i {
+    color: var(--accent-cyan);
+    font-size: 0.9rem;
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background: #e0e0e0;
+    margin: 60px 0;
+}
+
+/* Responsive για Services Page */
+@media (max-width: 900px) {
+    .service-row, .service-row.reverse {
+        flex-direction: column; /* Όλα κάθετα στα κινητά */
+        gap: 30px;
+    }
+
+    .service-img {
+        width: 100%;
+        height: 250px;
+    }
+}
+
+/* --- Fix Scroll Position --- */
+html {
+    scroll-behavior: smooth; /* Κάνει την κύλιση ομαλή */
+}
+
+/* Αυτό δίνει "αέρα" 100px πάνω από το σημείο που στοχεύουμε */
+#home-cleaning, 
+#business-cleaning, 
+#bio-cleaning, 
+#initial-cleaning {
+    scroll-margin-top: 100px; 
 }
