@@ -157,6 +157,8 @@ ul {
     padding: 2rem 0;
     text-align: center;
     margin-top: auto;
+    position: relative;
+    z-index: 20;
 }
 
 .contact-info {
@@ -408,8 +410,13 @@ ul {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: relative;
+    position: sticky;
     overflow: hidden;
+    top: 100px;
+    height: fit-content;
+    border-radius: 15px 0 0 15px; 
+    z-index: 10;
+    align-self: start;
 }
 
 /* Διακοσμητικός κύκλος στο background του μπλε κουτιού (προαιρετικό design touch) */
@@ -422,6 +429,35 @@ ul {
     height: 150px;
     background: rgba(255,255,255,0.05);
     border-radius: 50%;
+}
+
+/* 1. Αλλαγή στον Container για να επιτρέψει το Sticky */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 0;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: visible; /* ΠΡΟΣΟΧΗ: Το hidden κόβει το sticky! Άλλαξέ το σε visible */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    max-width: 1100px; /* Το μεγάλωσα λίγο για να ανασάνει η φόρμα */
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+/* 2. Το αριστερό κουτί γίνεται Sticky */
+.contact-info-box {
+    background-color: var(--primary-blue);
+    color: var(--text-light);
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; <-- ΔΙΕΓΡΑΨΕ ΑΥΤΟ */
+    position: sticky; /* Η μαγική εντολή */
+    top: 20px; /* Πόσο απόσταση από την κορυφή της οθόνης */
+    height: auto; /* Όχι fixed height */
+    border-radius: 15px 0 0 15px; /* Στρογγύλεμα μόνο αριστερά */
+    z-index: 10; /* Να είναι πάνω από τυχόν άλλα στοιχεία */
 }
 
 .contact-info-box h3 {
@@ -476,6 +512,7 @@ ul {
 .contact-form-box {
     padding: 50px;
     background-color: #ffffff;
+    border-radius: 0 15px 15px 0; /* Στρογγύλεμα μόνο δεξιά */
 }
 
 .form-group {
@@ -550,6 +587,7 @@ select {
 @media (max-width: 900px) {
     .contact-wrapper {
         grid-template-columns: 1fr; /* Μία στήλη */
+        overflow: hidden; /* Επαναφορά σε hidden για κινητά */
         margin: 0 20px;
     }
     
@@ -558,6 +596,7 @@ select {
     }
     
     .contact-info-box {
+        position: static; /* Καταργούμε το sticky */
         padding: 30px;
         flex-direction: row; /* Στα κινητά ίσως θέλουμε τα info οριζόντια ή κάθετα */
         flex-wrap: wrap;
@@ -567,6 +606,10 @@ select {
     .info-item {
         margin-bottom: 0;
         width: 100%;
+    }
+
+    .contact-form-box {
+        border-radius: 0 0 15px 15px;
     }
 }
 

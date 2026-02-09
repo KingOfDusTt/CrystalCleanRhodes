@@ -70,6 +70,16 @@
                             <p>Ρόδος</p>
                         </div>
                     </div>
+
+                    <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1);">
+                        <h4 style="color: var(--accent-cyan); margin-bottom: 15px;">Ωράριο Επικοινωνίας</h4>
+                        <p style="font-size: 0.95rem; opacity: 0.8; margin-bottom: 10px;">
+                            <i class="far fa-clock" style="margin-right: 10px;"></i> Δευτέρα - Σάββατο: 09:00 - 21:00
+                        </p>
+                            <p style="font-size: 0.9rem; opacity: 0.7;">
+                            Συμπληρώστε τη φόρμα και ένας εκπρόσωπός μας θα επικοινωνήσει μαζί σας το συντομότερο!
+                        </p>
+</div>
                 </div>
 
                 <div class="contact-form-box">
@@ -77,42 +87,151 @@
                     <div id="form-status" style="display: none; text-align: center; padding: 40px 20px;">
                         <i class="fas fa-check-circle" style="font-size: 4rem; color: #2bb6c8; margin-bottom: 20px;"></i>
                         <h3 style="color: #0e2a47; margin-bottom: 10px;">Το μήνυμα εστάλη!</h3>
-                        <p style="color: #555;">Ευχαριστούμε για την επικοινωνία. Ένας εκπρόσωπός μας θα επικοινωνήσει μαζί σας το συντομότερο.</p>
-                        <a href="index.html" class="btn btn-primary">Επιστροφή στην Αρχική Σελίδα</a>
-                    </div>
+                            <p style="color: #555; margin-bottom: 30px;">Ευχαριστούμε για την επικοινωνία. Θα σας απαντήσουμε σύντομα με την προσφορά μας.</p>
+                            <a href="index.html" class="btn btn-primary">Επιστροφή στην Αρχική</a>
+                        </div>
 
-                <form id="my-form" class="contact-form" action="https://formspree.io/f/xeeljawd" method="POST">
+                        <form id="my-form" class="contact-form" action="https://formspree.io/f/xnjbnpgk" method="POST">
         
-                        <div class="form-group">
-                            <label for="name">Ονοματεπώνυμο</label>
-                            <input type="text" id="name" name="name" placeholder="Το όνομά σας" required>
+                        <h4 style="color: var(--primary-blue); margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">Προσωπικά Στοιχεία</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Όνομα *</label>
+                                <input type="text" id="name" name="Όνομα" placeholder="π.χ. Γιάννης" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="surname">Επώνυμο *</label>
+                                    <input type="text" id="surname" name="Επώνυμο" placeholder="π.χ. Παπαδόπουλος" required>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Τηλέφωνο *</label>
+                                <input type="tel" id="phone" name="Τηλέφωνο" placeholder="π.χ. 69XXXXXXXX" required>
+                            </div>
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="Email" placeholder="Το email σας" required>
+                                </div>
+                            </div>
+
+                            <h4 style="color: var(--primary-blue); margin: 20px 0 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">Τοποθεσία Ακινήτου</h4>
+                            <div class="form-group">
+                                <label for="address">Οδός & Αριθμός *</label>
+                                <input type="text" id="address" name="Διεύθυνση" placeholder="π.χ. Εθνικής Αντιστάσεως 42" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                <label for="city">Πόλη / Περιοχή *</label>
+                                <input type="text" id="city" name="Πόλη" placeholder="π.χ. Ρόδος" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="zip">Τ.Κ. *</label>
+                                <input type="text" id="zip" name="ΤΚ" placeholder="π.χ. 85100" required>
+                            </div>
+                            </div>
+
+                            <h4 style="color: var(--primary-blue); margin: 20px 0 15px; border-bottom: 1px solid #eee; padding-bottom: 10px;">Λεπτομέρειες Ακινήτου</h4>
+        
+                            <div class="form-group">
+                                <label for="service">Είδος Καθαρισμού *</label>
+                                <select id="service" name="Είδος_Υπηρεσίας" required>
+                                    <option value="" disabled selected>- Επιλέξτε -</option>
+                                    <option value="Γενικός Καθαρισμός Σπιτιού">Γενικός Καθαρισμός Σπιτιού</option>
+                                    <option value="Καθαρισμός Επαγγελματικού Χώρου">Καθαρισμός Επαγγελματικού Χώρου</option>
+                                    <option value="Βιολογικός Καθαρισμός">Βιολογικός Καθαρισμός</option>
+                                    <option value="Αρχικός Καθαρισμός">Αρχικός Καθαρισμός (Νεόδμητα/Ανακαινίσεις)</option>
+                                    <option value="Άλλο">Άλλο</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="sqm">Τ.Μ. Καταλύματος *</label>
+                                    <input type="number" id="sqm" name="Τετραγωνικά" placeholder="π.χ. 60" required>
+                                </div>
+                            <div class="form-group">
+                                    <label for="url">URL Καταλύματος</label>
+                                <input type="url" id="url" name="URL_Ακινήτου" placeholder="Link από Airbnb, Booking...">
+                            </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="phone">Τηλέφωνο</label>
-                                <input type="tel" id="phone" name="phone" placeholder="π.χ. 69XXXXXXX" required>
+                                <label>Υπνοδωμάτια</label>
+                                <select name="Υπνοδωμάτια">
+                                    <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10+">10+</option>
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="Το email σας" required>
+                                <label>Μπάνια</label>
+                                <select name="Μπάνια">
+                                    <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10+">10+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Διπλά Κρεβάτια</label>
+                                <select name="Διπλά_Κρεβάτια">
+                                    <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10+">10+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Μονά Κρεβάτια</label>
+                                <select name="Μονά_Κρεβάτια">
+                                    <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10+">10+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                <label>Διπλοί Καναπέδες</label>
+                                <select name="Διπλοί_Καναπέδες">
+                                    <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10+">10+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Μονοί Καναπέδες</label>
+                                <select name="Μονοί_Καναπέδες">
+                                    <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10+">10+</option>
+                                </select>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="service">Ενδιαφέρομαι για</label>
-                            <select id="service" name="service">
-                                <option value="Γενικός Καθαρισμός Σπιτιού">Γενικό Καθαρισμό Σπιτιού</option>
-                                <option value="Καθαρισμός Επαγγελματικού Χώρου">Καθαρισμό Επαγγελματικού Χώρου</option>
-                                <option value="Βιολογικός Καθαρισμός">Βιολογικό Καθαρισμό</option>
-                                <option value="Αρχικός Καθαρισμός">Αρχικό Καθαρισμό (Νεόδμητα/Ανακαινίσεις)</option>
-                                <option value="Άλλο">Άλλο</option>
+                            <label for="hours">Εκτιμώμενες Ώρες Καθαρισμού</label>
+                            <select id="hours" name="Εκτιμώμενες_Ώρες">
+                                <option value="Δεν γνωρίζω">- Δεν γνωρίζω -</option>
+                                <option value="1 ώρα">1 ώρα</option>
+                                <option value="1.5 ώρα">1.5 ώρα</option>
+                                <option value="2 ώρες">2 ώρες</option>
+                                <option value="2.5 ώρες">2.5 ώρες</option>
+                                <option value="3 ώρες">3 ώρες</option>
+                                <option value="3.5 ώρες">3.5 ώρες</option>
+                                <option value="4 ώρες">4 ώρες</option>
+                                <option value="4.5 ώρες">4.5 ώρες</option>
+                                <option value="5 ώρες">5 ώρες</option>
+                                <option value="5.5 ώρες">5.5 ώρες</option>
+                                <option value="6 ώρες">6 ώρες</option>
+                                <option value="6.5 ώρες">6.5 ώρες</option>
+                                <option value="7 ώρες">7 ώρες</option>
+                                <option value="7.5 ώρες">7.5 ώρες</option>
+                                <option value="8 ώρες">8 ώρες</option>
+                                <option value="8.5 ώρες">8.5 ώρες</option>
+                                <option value="9 ώρες">9 ώρες</option>
+                                <option value="9.5 ώρες">9.5 ώρες</option>
+                                <option value="10+ ώρες">10+ ώρες</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="message">Μήνυμα / Λεπτομέρειες</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Πείτε μας λίγα λόγια για το χώρο..."></textarea>
+                            <label for="message">Μήνυμα / Επιπλέον Λεπτομέρειες</label>
+                            <textarea id="message" name="Μήνυμα" rows="5" placeholder="Λοιπές χρήσιμες πληροφορίες..."></textarea>
                         </div>
 
                         <button type="submit" id="submit-btn" class="btn btn-primary full-width">Αποστολή Μηνύματος</button>
@@ -120,9 +239,6 @@
                         <p id="form-error" style="color: red; display: none; margin-top: 10px; text-align: center;"></p>
                     </form>
                 </div>
-            </div>
-        </div>
-    </section>
 
     <footer class="main-footer">
         <div class="container">
