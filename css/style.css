@@ -25,7 +25,6 @@ body {
 }
 
 html {
-    overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
@@ -579,7 +578,7 @@ select {
 @media (max-width: 900px) {
     .contact-wrapper {
         grid-template-columns: 1fr; /* Μία στήλη */
-        overflow: hidden; /* Επαναφορά σε hidden για κινητά */
+        overflow: hidden !important;  /* Επαναφορά σε hidden για κινητά */
         margin: 0 20px;
     }
     
