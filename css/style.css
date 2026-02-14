@@ -893,7 +893,7 @@ html {
         width: 100%;
         
         /* ΕΠΑΝΑΦΟΡΑ ΤΟΥ BOX STYLE */
-        border-radius: 15px !important; /* Στρογγυλεμένες γωνίες ξανά */
+        border-radius: 15px !important; /* Στρογγυλεμένες γωνίες */
         box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Σκιά για βάθος */
         overflow: hidden !important; /* Κόβει το περιεχόμενο στις γωνίες */
         margin: 0;
