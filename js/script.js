@@ -1,89 +1,90 @@
 // Περιμένουμε να φορτώσει όλη η σελίδα
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Επιλογή των στοιχείων
+    // --- 1. ΛΕΙΤΟΥΡΓΙΑ MOBILE MENU ---
     const mobileBtn = document.querySelector('.mobile-toggle');
     const nav = document.querySelector('.main-nav');
 
-    // Όταν κάποιος πατάει το burger μενού
-    mobileBtn.addEventListener('click', () => {
-        // Εμφάνιση/Απόκρυψη του μενού προσθέτοντας μια κλάση στο CSS
-        nav.classList.toggle('active');
-        
-        // Αλλαγή του εικονιδίου από γραμμές (bars) σε Χ (times)
-        const icon = mobileBtn.querySelector('i');
-        if (nav.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    });
+    if (mobileBtn) {
+        mobileBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            const icon = mobileBtn.querySelector('i');
+            if (nav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
 
-    /* --- Formspree AJAX Submission --- */
-    // Βρίσκουμε τη φόρμα με βάση το ID
-    const form = document.getElementById("my-form");
+    // --- 2. ΣΥΝΔΕΣΗ ΦΟΡΜΑΣ (FORMSPREE + MAKE.COM) ---
+    const contactForm = document.getElementById("my-form");
 
-    if (form) { // Έλεγχος ότι βρισκόμαστε στη σελίδα contact
-    
-        async function handleSubmit(event) {
-            event.preventDefault(); // Σταματάμε την κανονική αποστολή (για να μην κάνει reload)
-        
+    if (contactForm) {
+        contactForm.addEventListener("submit", async function(event) {
+            event.preventDefault(); // Σταματάμε την κανονική αποστολή της σελίδας
+
+            // Βρίσκουμε τα στοιχεία της οθόνης
             const status = document.getElementById("form-status");
             const errorMsg = document.getElementById("form-error");
             const submitBtn = document.getElementById("submit-btn");
             const originalBtnText = submitBtn.innerHTML;
 
-            // Αλλάζουμε το κείμενο του κουμπιού για να δείξουμε ότι κάτι γίνεται
+            // Αλλάζουμε το κουμπί σε "Αποστολή..."
             submitBtn.innerHTML = "Αποστολή...";
-            submitBtn.disabled = true; // Απενεργοποίηση για να μην πατήσει 2 φορές
-        
-            const data = new FormData(event.target);
+            submitBtn.disabled = true;
+            errorMsg.style.display = "none"; 
+
+            // Μαζεύουμε τα δεδομένα της φόρμας
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
+
+            const formspreeUrl = contactForm.action; // Το link του Formspree
+            const makeWebhookUrl = "https://hook.eu1.make.com/l1oir326gg217l9v91m6b8zn52uve2te"; // Το link του Make.com
 
             try {
-                const response = await fetch(event.target.action, {
-                    method: form.method,
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                // Στέλνουμε στο Make.com "στο παρασκήνιο" (δεν περιμένουμε να τελειώσει για να προχωρήσουμε)
+                fetch(makeWebhookUrl, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                }).catch(err => console.log("Make.com background Info:", err));
+
+                // Στέλνουμε στο Formspree (Το βασικό μας Email)
+                const formspreeResponse = await fetch(formspreeUrl, {
+                    method: "POST",
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
                 });
 
-                if (response.ok) {
+                if (formspreeResponse.ok) {
                     // ΕΠΙΤΥΧΙΑ!
-                    // Κρύβουμε τη φόρμα
-                    form.style.display = "none";
-                    // Εμφανίζουμε το μήνυμα επιτυχίας
-                    status.style.display = "block";
-                
-                // ΠΡΟΑΙΡΕΤΙΚΑ: Αν θες παρόλα αυτά να τον πας στο thank-you.html,
-                // σβήσε τις 2 από πάνω γραμμές και βάλε μόνο αυτό:
-                // window.location.href = "thank-you.html";
-                
+                    contactForm.style.display = "none"; // Κρύβουμε τη φόρμα
+                    status.style.display = "block"; // Δείχνουμε το πράσινο τικ και το μήνυμα!
+                    contactForm.reset(); // Αδειάζουμε τα πεδία
                 } else {
-                    // ΛΑΘΟΣ από το server
-                    const jsonData = await response.json();
+                    // Λάθος από το Formspree
+                    const jsonData = await formspreeResponse.json();
                     if (Object.hasOwn(jsonData, 'errors')) {
                         errorMsg.textContent = jsonData["errors"].map(error => error["message"]).join(", ");
                     } else {
-                        errorMsg.textContent = "Υπήρξε ένα πρόβλημα κατά την αποστολή. Δοκιμάστε ξανά.";
+                        errorMsg.textContent = "Υπήρξε ένα πρόβλημα. Δοκιμάστε ξανά.";
                     }
                     errorMsg.style.display = "block";
-                    // Επαναφορά κουμπιού
                     submitBtn.innerHTML = originalBtnText;
                     submitBtn.disabled = false;
                 }
+
             } catch (error) {
-                // ΛΑΘΟΣ δικτύου
-                errorMsg.textContent = "Πρόβλημα σύνδεσης. Ελέγξτε το ίντερνετ σας.";
+                // Λάθος δικτύου (π.χ. κόπηκε το ίντερνετ του χρήστη)
+                console.error("Σφάλμα:", error);
+                errorMsg.textContent = "Πρόβλημα σύνδεσης. Ελέγξτε το ίντερνετ σας και δοκιμάστε ξανά.";
                 errorMsg.style.display = "block";
                 submitBtn.innerHTML = originalBtnText;
                 submitBtn.disabled = false;
             }
-        }
-
-        form.addEventListener("submit", handleSubmit);
+        });
     }
-
 });
